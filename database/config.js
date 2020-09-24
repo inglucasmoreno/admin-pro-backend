@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const dbConnection = async () => {
     try{
-        await mongoose.connect(process.env.DB_CNN || 'mongodb://localhost:27017/test',{
+        await mongoose.connect(process.env.DB_CNN || 'mongodb://localhost:27017/hospitalDB',{
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true

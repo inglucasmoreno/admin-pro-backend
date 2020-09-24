@@ -8,19 +8,18 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 // Configuracion de cors
+const cors = require('cors');
 app.use(cors());
+
+// Lectura y parseo del body
+app.use(express.json());
 
 // Configuracion de la base de datos
 dbConnection();
 
-
 // Rutas
-app.get('/', (req, res) => {
-    res.json({
-        ok: true,
-        msg: 'Hola mundo'
-    });
-})
+app.use('/api/usuarios', require('./routes/usuarios.routes'));
+app.use('/api/auth', require('./routes/auth.routes'));
 
 // Servidor escuchando
 app.listen(port, ()=>{
