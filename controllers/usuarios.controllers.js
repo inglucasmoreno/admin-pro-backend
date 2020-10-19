@@ -59,7 +59,7 @@ const crearUsuario = async (req, res) => {
 }
 
 const actualizarUsuario = async (req, res) => {
- 
+
     // Validar token y comprobar si el usuario es correcto
     
     const uid = req.params.id;
@@ -134,8 +134,6 @@ const borrarUsuario = async (req, res) => {
             msg: 'Error de servidor'
         })
     }
-
-    
 
 }
 
