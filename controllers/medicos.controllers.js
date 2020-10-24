@@ -120,11 +120,6 @@ const borrarMedico = async (req, res) => {
             msg: 'Error de servidor'
         })
     }
-
-    res.json({
-        ok: true,
-        msg: 'borrarMedico'
-    })
 }
 
 module.exports = {
