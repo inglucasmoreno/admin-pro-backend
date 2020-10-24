@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 require('dotenv').config();
 
 const { dbConnection } = require('./database/config');
@@ -28,7 +29,12 @@ app.use('/api/todo', require('./routes/busquedas.routes'));
 app.use('/api/uploads', require('./routes/uploads.routes'));
 app.use('/api/auth', require('./routes/auth.routes'));
 
-
+// Lo ultimo
+// Nota: Esto es necesario para que en produccion al recargar no se pierda la ruta
+// - Siempre que tenga que buscar una ruta nueva -> tiene que pasar por el index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public/index.html'));
+})
 
 // Servidor escuchando
 app.listen(port, ()=>{
